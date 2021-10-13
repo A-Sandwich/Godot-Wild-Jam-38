@@ -15,7 +15,15 @@ func get_input():
 	if Input.is_action_pressed('ui_up'):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
+	animate(velocity)
 
 func _physics_process(delta):
 	get_input()
 	move_and_collide(velocity * delta)
+
+func animate(velocity):
+	if $AnimatedSprite.is_playing() and velocity == Vector2():
+		$AnimatedSprite.stop()
+	elif not $AnimatedSprite.is_playing():
+		$AnimatedSprite.play()
+	
