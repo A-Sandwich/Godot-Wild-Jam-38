@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://Typefaces/gomarice_no_continue.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=13]
+size = 150
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 75
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 75
+font_data = ExtResource( 4 )
+
+[node name="TitleScreen" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -428.0
+margin_right = 428.0
+margin_bottom = 151.0
+custom_fonts/font = SubResource( 13 )
+text = "ROBO-GROWER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -81.0
+margin_top = -100.0
+margin_right = 81.0
+margin_bottom = -18.0
+custom_fonts/font = SubResource( 14 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -100.0
+margin_right = 170.0
+margin_bottom = -18.0
+custom_fonts/font = SubResource( 15 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
