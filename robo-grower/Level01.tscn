@@ -12,6 +12,9 @@
 [node name="Background" type="Sprite" parent="."]
 scale = Vector2( 100, 100 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -21,6 +24,7 @@ margin_right = 2011.38
 margin_bottom = 607.025
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
@@ -32,8 +36,10 @@ tile_data = PoolIntArray( -262139, 0, 196609, -262138, 0, 3, -262137, 0, 3, -262
 position = Vector2( 5.78858, -152.307 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.952941, 0.952941, 0.952941, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 811.563, -2053.36 )
@@ -42,8 +48,14 @@ texture = ExtResource( 3 )
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Shadows" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Shadow" parent="Shadows" instance=ExtResource( 5 )]
 position = Vector2( 448.556, -346.509 )
