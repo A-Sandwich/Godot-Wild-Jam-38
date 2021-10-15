@@ -1,11 +1,13 @@
 extends Area2D
 
 signal discharge
-signal charge
+signal charging
 
 func _on_Shadow_body_entered(body):
+	print("entered")
 	emit_signal("discharge")
 
 
 func _on_Shadow_body_exited(body):
-	emit_signal("charge")
+	print("Exit")
+	emit_signal("charging")

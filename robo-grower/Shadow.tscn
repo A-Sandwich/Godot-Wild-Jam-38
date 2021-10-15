@@ -4,7 +4,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Shadow" type="Area2D"]
+[node name="Shadow" type="Area2D" groups=[
+"Shadow",
+]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )

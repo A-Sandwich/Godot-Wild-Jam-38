@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Battery.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/retry.png" type="Texture" id=2]
+[ext_resource path="res://RetryButton.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0352941, 0.913725, 0.27451, 1 )
@@ -42,3 +44,23 @@ text = "Solar Battery"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RetryButton" type="TextureButton" parent="." groups=[
+"retry",
+]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -77.1315
+margin_top = -83.8057
+margin_right = 178.869
+margin_bottom = 172.194
+rect_scale = Vector2( 0.25, 0.25 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="RetryButton" to="RetryButton" method="_on_RetryButton_pressed"]

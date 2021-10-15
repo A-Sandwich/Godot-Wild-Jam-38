@@ -90,6 +90,8 @@ points = PoolVector2Array( 0, 80, 0, 80, 0, 74, 6, 62, 12, 54, 12, 48, 16, 38, 2
 } ]
 2/z_index = 0
 
-[node name="Clouds" type="TileMap"]
+[node name="Clouds" type="TileMap" groups=[
+"cloud",
+]]
 tile_set = SubResource( 7 )
 format = 1

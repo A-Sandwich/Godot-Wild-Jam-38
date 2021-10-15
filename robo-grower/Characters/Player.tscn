@@ -40,7 +40,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "walk"
-frame = 8
+frame = 5
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -59,3 +59,7 @@ texture = ExtResource( 1 )
 color = Color( 0.372549, 0.807843, 1, 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 13 )]
+
+[node name="PanTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="PanTimer" to="." method="_on_PanTimer_timeout"]
