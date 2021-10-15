@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Battery.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0352941, 0.913725, 0.27451, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.203922, 0.760784, 0.74902, 1 )
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Battery" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -123.0
+margin_top = -25.0
+margin_right = 124.0
+margin_bottom = -20.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+value = 100.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -211.112
+margin_top = -25.1118
+margin_right = 11.8882
+margin_bottom = 38.8882
+text = "Solar Battery"
+__meta__ = {
+"_edit_use_anchors_": false
+}

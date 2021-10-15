@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Sprites/spot.png" type="Texture" id=1]
 [ext_resource path="res://Characters/Player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/robot-03/robot-006.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/robot-03/robot-008.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/robot-03/robot-010.png" type="Texture" id=12]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 119.53
@@ -30,6 +31,7 @@ polygon = PoolVector2Array( 9.47949, -205.355, 16.5506, -205.001, 40.5922, -171.
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.25, 0.25 )
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -38,7 +40,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "walk"
-frame = 1
+frame = 8
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -55,3 +57,5 @@ occluder = SubResource( 3 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 color = Color( 0.372549, 0.807843, 1, 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 13 )]
