@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Battery.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/retry.png" type="Texture" id=2]
 [ext_resource path="res://RetryButton.gd" type="Script" id=3]
+[ext_resource path="res://Typefaces/gomarice_no_continue.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://RetryText.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0352941, 0.913725, 0.27451, 1 )
@@ -10,7 +12,17 @@ bg_color = Color( 0.0352941, 0.913725, 0.27451, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.203922, 0.760784, 0.74902, 1 )
 
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
 [node name="HUD" type="CanvasLayer"]
+pause_mode = 2
 
 [node name="Battery" type="ProgressBar" parent="."]
 anchor_left = 0.5
@@ -19,13 +31,13 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -123.0
 margin_top = -25.0
-margin_right = 124.0
-margin_bottom = -20.0
+margin_right = 122.0
+margin_bottom = -11.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-value = 100.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,10 +48,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -211.112
-margin_top = -25.1118
-margin_right = 11.8882
-margin_bottom = 38.8882
+margin_left = -228.717
+margin_top = -26.2356
+margin_right = -5.71698
+margin_bottom = 37.7644
+custom_fonts/font = SubResource( 3 )
 text = "Solar Battery"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,4 +76,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RetryText" type="Label" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 10.0
+margin_top = -7.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 4 )
+text = "You ran out of battery, press the icon at the bottom right to retry! (Hint: your battery charges when you are in the sun)"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryTextDisplay" type="Timer" parent="RetryText"]
+
+[connection signal="charged" from="Battery" to="RetryText" method="_on_Battery_charged"]
+[connection signal="no_charge" from="Battery" to="RetryText" method="_on_Battery_no_charge"]
 [connection signal="pressed" from="RetryButton" to="RetryButton" method="_on_RetryButton_pressed"]
+[connection signal="timeout" from="RetryText/RetryTextDisplay" to="RetryText" method="_on_RetryTextDisplay_timeout"]

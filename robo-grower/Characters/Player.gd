@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal start_charging
+signal stop_charging
+
 var speed = 500
 var gravity = 32
 var jumpforce = -1000
@@ -30,14 +33,27 @@ func get_input():
 		return
 	# Detect up/down/left/right keystate and only move when pressed.
 	if Input.is_action_pressed('ui_right'):
-		velocity.x = speed
+		walk(speed, true)
 	elif Input.is_action_pressed('ui_left'):
-		velocity.x = -speed
+		walk(-speed, true)
 	else:
-		velocity.x = lerp(velocity.x, 0, 0.25)
+		walk(lerp(velocity.x, 0, 0.25), false)
 
 	if Input.is_action_pressed('jump') and is_on_floor():
-		velocity.y = jumpforce
+		jump()
+
+func jump():
+	velocity.y = jumpforce
+	if not $Jump.playing:
+		$Jump.play()
+
+func walk(speed, play_sound):
+	velocity.x = speed
+	if play_sound:
+		if not $Walk.playing:
+			$Walk.play()
+	elif $Walk.playing:
+		$Walk.stop()
 
 
 func _physics_process(delta):
@@ -68,11 +84,11 @@ func pan_to_goal(delta):
 
 func _on_charging():
 	print("Charge")
-	$HUD/Battery.is_charging = true
+	emit_signal("start_charging")
 
 func _on_discharge():
 	print("Discharge")
-	$HUD/Battery.is_charging = false
+	emit_signal("stop_charging")
 
 func _no_charge():
 	velocity = Vector2.ZERO

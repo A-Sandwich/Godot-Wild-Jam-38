@@ -3,16 +3,14 @@ extends Area2D
 signal seed_get
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Seed_body_entered(body):
+	if not visible:
+		return
+	print("entered")
 	emit_signal("seed_get")
+	$obtain.play()
+	visible = false
+
+
+func _on_obtain_finished():
 	self.queue_free()

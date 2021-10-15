@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Seed.png" type="Texture" id=1]
 [ext_resource path="res://Seed.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/spot.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/vgmenuselect.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Glow"
@@ -46,13 +47,18 @@ scale = Vector2( 6, 6 )
 z_index = -1
 texture = ExtResource( 3 )
 color = Color( 0.0235294, 0.811765, 0, 1 )
-energy = 0.95
+energy = 0.60511
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Glow" type="AnimationPlayer" parent="."]
 autoplay = "Glow"
 anims/Glow = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 2 )
 
+[node name="obtain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 20.0
+
 [connection signal="body_entered" from="." to="." method="_on_Seed_body_entered"]
+[connection signal="finished" from="obtain" to="." method="_on_obtain_finished"]

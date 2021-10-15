@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/vgmenuselect.wav-3128d4247becd5662ae172a93e2c9995.sample"
+
+[deps]
+
+source_file="res://Sounds/vgmenuselect.wav"
+dest_files=[ "res://.import/vgmenuselect.wav-3128d4247becd5662ae172a93e2c9995.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
