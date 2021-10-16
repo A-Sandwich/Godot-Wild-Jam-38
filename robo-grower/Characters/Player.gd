@@ -9,17 +9,16 @@ var jumpforce = -1000
 var velocity = Vector2.ZERO
 var has_charge = true
 var is_panning_to_goal = true
-var goal_global_position
+var seeds
 
 func _ready():
 	$HUD/Battery.connect("no_charge", self, "_no_charge")
 	$HUD/Battery.connect("charged", self, "_charged")
-	var seeds = get_tree().get_nodes_in_group("seed")
+	seeds = get_tree().get_nodes_in_group("seed")
 	var position
 	for plant_seed in seeds:
 		# the last seed in group is the final goal? maybe.
 		plant_seed.connect("seed_get", self, "_seed_get")
-		goal_global_position = plant_seed.global_position
 	var shadows = get_tree().get_nodes_in_group("Shadow")
 	for shadow in shadows:
 		print("connecting")
@@ -78,13 +77,21 @@ func animate(delta):
 		pan_to_goal(delta)
 
 func pan_to_goal(delta):
-	var current_position = Vector2($Camera2D.global_position.x + 1000 * delta, $Camera2D.global_position.y + 1000 * delta)
-	current_position.x = clamp(current_position.x, -1000000000, goal_global_position.x)
-	current_position.y = clamp(current_position.y, -1000000000, goal_global_position.y)
-	$Camera2D.global_position = current_position
-	if current_position == goal_global_position:
-		is_panning_to_goal = false
-		$PanTimer.start()
+	if len(seeds) == 0:
+		return
+	var goal_global_position = seeds[0].global_position
+	var distance_to_target = $Camera2D.global_position.distance_to(goal_global_position)
+	var camera_velocity = (goal_global_position - $Camera2D.global_position).normalized() * 1000
+	$Camera2D.global_position += camera_velocity * get_physics_process_delta_time()
+	#var current_position = Vector2($Camera2D.global_position.x + 1000 * delta, $Camera2D.global_position.y + 1000 * delta)
+	#current_position.x = clamp(current_position.x, -1000000000, goal_global_position.x)
+	#current_position.y = clamp(current_position.y, -1000000000, goal_global_position.y)
+	#$Camera2D.global_position = current_position
+	if $Camera2D.global_position == goal_global_position or distance_to_target < 300:
+		seeds.erase(seeds[0])
+		if len(seeds) == 0:
+			is_panning_to_goal = false
+			$PanTimer.start()
 
 func _on_charging():
 	print("Charge")
