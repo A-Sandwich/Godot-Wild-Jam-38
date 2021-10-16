@@ -3,7 +3,7 @@
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://grass-world.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/light.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/background.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Background-clouds.png" type="Texture" id=4]
 [ext_resource path="res://Shadow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Clouds/Cloud01.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Seed.tscn" type="PackedScene" id=7]
@@ -28,8 +28,8 @@ tracks/0/keys = {
 [node name="Level01" type="Node"]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 61.4026, 57.3981 )
-scale = Vector2( 100, 100 )
+position = Vector2( 59058.7, -9461.2 )
+scale = Vector2( 81.9852, 81.9852 )
 texture = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
