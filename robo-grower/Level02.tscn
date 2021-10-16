@@ -13,7 +13,7 @@ resource_name = "Bounce"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Seed:position")
+tracks/0/path = NodePath("Seeds/Seed01:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -31,17 +31,8 @@ tracks/0/keys = {
 position = Vector2( 59058.7, -9461.2 )
 scale = Vector2( 81.9852, 81.9852 )
 texture = ExtResource( 4 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-margin_left = -1616.62
-margin_top = -1304.97
-margin_right = 2011.38
-margin_bottom = 607.025
-color = Color( 0, 0, 0, 1 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="grass-world" parent="." instance=ExtResource( 2 )]
@@ -54,18 +45,21 @@ position = Vector2( -110.96, -257.493 )
 color = Color( 0.952941, 0.952941, 0.952941, 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 2361.16, -1283.02 )
+position = Vector2( 2128.02, -1265.09 )
 scale = Vector2( 4.85263, 4.96409 )
 texture = ExtResource( 3 )
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Shadows" type="Node2D" parent="."]
 
 [node name="Shadow" parent="Shadows" instance=ExtResource( 5 )]
-position = Vector2( 2093.1, 692.745 )
-rotation = 0.261799
+position = Vector2( 2158.11, 724.129 )
+rotation = 0.126542
 scale = Vector2( 4, 3 )
 
 [node name="Shadow3" parent="Shadows" instance=ExtResource( 5 )]
@@ -74,8 +68,8 @@ rotation = 0.603892
 scale = Vector2( 3, 3 )
 
 [node name="Shadow4" parent="Shadows" instance=ExtResource( 5 )]
-position = Vector2( 2236.63, 192.395 )
-scale = Vector2( 2, 1.5 )
+position = Vector2( 2272.5, 252.922 )
+scale = Vector2( 3, 1.5 )
 
 [node name="Shadow5" parent="Shadows" instance=ExtResource( 5 )]
 position = Vector2( 1414.35, 62.2277 )
@@ -90,13 +84,23 @@ scale = Vector2( 1.25, 2 )
 [node name="Clouds" type="Node" parent="."]
 
 [node name="Clouds" parent="Clouds" instance=ExtResource( 6 )]
-tile_data = PoolIntArray( -524255, 2, 0, -196586, 0, 0, -131038, 1, 0, 31, 0, 0, 65553, 2, 0, 131094, 1, 0, 196636, 2, 0 )
-
-[node name="Seed" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3295.02, 362.023 )
-scale = Vector2( 0.25, 0.25 )
+tile_data = PoolIntArray( -524255, 2, 0, -196586, 0, 0, -131038, 1, 0, 31, 0, 0, 65553, 2, 0, 131094, 1, 0, 327708, 2, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Bounce"
 method_call_mode = 1
 anims/Bounce = SubResource( 1 )
+
+[node name="Seeds" type="Node" parent="."]
+
+[node name="Seed01" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 3295.02, 362.023 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Seed02" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 712.546, 34.7303 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Seed03" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 2030.68, -45.972 )
+scale = Vector2( 0.25, 0.25 )

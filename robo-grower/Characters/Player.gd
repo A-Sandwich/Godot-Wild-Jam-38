@@ -39,11 +39,15 @@ func sort_seeds_by_distance():
 			for sorted_seed in sorted_array:
 				var sorted_distance = global_position.distance_to(sorted_seed.global_position)
 				if sorted_distance > distance:
-					sorted_array.push_front(plant_seed)
+					print("Push front", plant_seed.name)
+					sorted_array.insert(sorted_array.find(sorted_seed), plant_seed)
 					break
 			if not sorted_array.has(plant_seed):
+				print("Push back")
 				sorted_array.push_back(plant_seed)
 	seeds = sorted_array
+	for seeedy in seeds:
+		print(global_position.distance_to(seeedy.global_position), seeedy.name)
 
 func new_level_or_retry():
 	if $"/root/State".should_pan:
