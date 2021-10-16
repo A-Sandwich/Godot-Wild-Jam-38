@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://grass-world.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Shadow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Clouds/Cloud01.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Seed.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Level02.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Bounce"
@@ -25,7 +26,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3295.02, 362.023 ), Vector2( 3295.02, 312.023 ), Vector2( 3295.02, 362.023 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Seeds/Seed02:position")
+tracks/1/path = NodePath("Seeds/Seed03:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -34,10 +35,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 712.546, 34.7303 ), Vector2( 712.546, -15.27 ), Vector2( 712.546, 34.7303 ) ]
+"values": [ Vector2( 2030.68, -45.972 ), Vector2( 2030.68, -95.972 ), Vector2( 2030.68, -45.972 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Seeds/Seed03:position")
+tracks/2/path = NodePath("Seeds/Seed02:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -46,10 +47,13 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2030.68, -45.972 ), Vector2( 2030.68, -95.972 ), Vector2( 2030.68, -45.972 ) ]
+"values": [ Vector2( 1290.62, 684.284 ), Vector2( 1290.62, 634.284 ), Vector2( 1290.62, 684.284 ) ]
 }
 
-[node name="Level02" type="Node"]
+[node name="Level02" type="Node" groups=[
+"level",
+]]
+script = ExtResource( 8 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 59058.7, -9461.2 )
@@ -133,7 +137,7 @@ position = Vector2( 3295.02, 362.023 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Seed02" parent="Seeds" instance=ExtResource( 7 )]
-position = Vector2( 712.546, 34.7303 )
+position = Vector2( 1290.62, 684.284 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Seed03" parent="Seeds" instance=ExtResource( 7 )]

@@ -15,9 +15,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if number_of_shadows == 0:
-		charge = charge + (delta * rate_of_charge)
+		charge = charge + (delta * rate_of_charge * 2)
 	else:
-		charge = charge - (delta * rate_of_charge * 2)
+		charge = charge - (delta * rate_of_charge * 3)
 	if charge <= 0 and value != 0:
 		emit_signal("no_charge")
 		get_tree().paused = true

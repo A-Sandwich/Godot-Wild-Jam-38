@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal start_charging
 signal stop_charging
+signal win
 
 var speed = 500
 var gravity = 32
@@ -14,6 +15,7 @@ var seed_count = 0
 var total_seeds = 0
 
 func _ready():
+	new_level_or_retry()
 	$HUD/Battery.connect("no_charge", self, "_no_charge")
 	$HUD/Battery.connect("charged", self, "_charged")
 	seeds = get_tree().get_nodes_in_group("seed")
@@ -25,7 +27,6 @@ func _ready():
 	sort_seeds_by_distance()
 	var shadows = get_tree().get_nodes_in_group("Shadow")
 	for shadow in shadows:
-		print(shadow.name)
 		shadow.connect("charging", self, "_on_charging")
 		shadow.connect("discharge", self, "_on_discharge")
 
@@ -46,8 +47,9 @@ func sort_seeds_by_distance():
 	seeds = sorted_array
 
 func new_level_or_retry():
-	if $"/root/State".should_pan:
-		$"/root/State".should_pan = false
+	var level = get_tree().get_nodes_in_group("level")[0]
+	if not level.current_level in $"/root/State".should_pan:
+		$"/root/State".should_pan.append($"/root/State".current_level)
 	else:
 		is_panning_to_goal = false
 
@@ -136,6 +138,7 @@ func _charged():
 func _seed_get():
 	seed_count += 1
 	if seed_count == total_seeds:
+		emit_signal("win")
 		$WinAnimation.play("Win")
 
 func _on_PanTimer_timeout():

@@ -3,15 +3,15 @@
 [ext_resource path="res://TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Typefaces/gomarice_no_continue.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=1]
 size = 150
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=2]
 size = 75
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=3]
 size = 75
 font_data = ExtResource( 4 )
 
@@ -24,8 +24,8 @@ anchor_right = 0.5
 margin_left = -428.0
 margin_right = 428.0
 margin_bottom = 151.0
-custom_fonts/font = SubResource( 13 )
-text = "ROBO-GROWER"
+custom_fonts/font = SubResource( 1 )
+text = "ROBO-HARVEST"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,7 +39,7 @@ margin_left = -81.0
 margin_top = -100.0
 margin_right = 81.0
 margin_bottom = -18.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 2 )
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,7 +52,7 @@ margin_left = 25.0
 margin_top = -100.0
 margin_right = 170.0
 margin_bottom = -18.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 3 )
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
