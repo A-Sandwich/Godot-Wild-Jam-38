@@ -12,6 +12,7 @@ var is_panning_to_goal = true
 var goal_global_position
 
 func _ready():
+	new_level_or_retry()
 	$HUD/Battery.connect("no_charge", self, "_no_charge")
 	$HUD/Battery.connect("charged", self, "_charged")
 	var seeds = get_tree().get_nodes_in_group("seed")
@@ -25,8 +26,12 @@ func _ready():
 		print("connecting")
 		shadow.connect("charging", self, "_on_charging")
 		shadow.connect("discharge", self, "_on_discharge")
-	
 
+func new_level_or_retry():
+	if $"/root/State".should_pan:
+		$"/root/State".should_pan = false
+	else:
+		is_panning_to_goal = false
 
 func get_input():
 	if not has_charge or is_panning_to_goal:

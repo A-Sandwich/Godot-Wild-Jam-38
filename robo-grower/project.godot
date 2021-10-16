@@ -12,11 +12,12 @@ config_version=4
 
 config/name="robo-grower"
 run/main_scene="res://Level01.tscn"
-config/icon="res://icon.png"
+config/icon="res://Sprites/robot-03/robot-003.png"
 
 [autoload]
 
 BackgroundMusic="*res://BackgroundMusic.tscn"
+State="*res://State.tscn"
 
 [input]
 
