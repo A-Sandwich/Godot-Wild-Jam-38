@@ -9,5 +9,5 @@ func _ready():
 
 func _seed_get():
 	number_of_seeds_found += 1
-	if 0 < number_of_seeds_found < 4:
+	if number_of_seeds_found in [1,2,3]:
 		get_node("Seed0"+str(number_of_seeds_found)).modulate = Color(1,1,1,1)

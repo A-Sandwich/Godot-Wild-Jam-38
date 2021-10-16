@@ -10,6 +10,8 @@ var velocity = Vector2.ZERO
 var has_charge = true
 var is_panning_to_goal = true
 var seeds
+var seed_count = 0
+var total_seeds = 0
 
 func _ready():
 	$HUD/Battery.connect("no_charge", self, "_no_charge")
@@ -17,13 +19,31 @@ func _ready():
 	seeds = get_tree().get_nodes_in_group("seed")
 	var position
 	for plant_seed in seeds:
+		total_seeds += 1
 		# the last seed in group is the final goal? maybe.
 		plant_seed.connect("seed_get", self, "_seed_get")
+	sort_seeds_by_distance()
 	var shadows = get_tree().get_nodes_in_group("Shadow")
 	for shadow in shadows:
 		print("connecting")
 		shadow.connect("charging", self, "_on_charging")
 		shadow.connect("discharge", self, "_on_discharge")
+
+func sort_seeds_by_distance():
+	var sorted_array = Array()
+	for plant_seed in seeds:
+		if sorted_array.size() == 0:
+			sorted_array.append(plant_seed)
+		else:
+			var distance = global_position.distance_to(plant_seed.global_position)
+			for sorted_seed in sorted_array:
+				var sorted_distance = global_position.distance_to(sorted_seed.global_position)
+				if sorted_distance > distance:
+					sorted_array.push_front(plant_seed)
+					break
+			if not sorted_array.has(plant_seed):
+				sorted_array.push_back(plant_seed)
+	seeds = sorted_array
 
 func new_level_or_retry():
 	if $"/root/State".should_pan:
@@ -42,10 +62,12 @@ func get_input():
 	else:
 		walk(lerp(velocity.x, 0, 0.25), false)
 
-	if Input.is_action_pressed('jump') and is_on_floor():
+	if Input.is_action_pressed('jump'):
 		jump()
 
 func jump():
+	if not is_on_floor():
+		return
 	velocity.y = jumpforce
 	if not $Jump.playing:
 		$Jump.play()
@@ -60,6 +82,12 @@ func walk(speed, play_sound):
 
 
 func _physics_process(delta):
+	if $WinAnimation.is_playing():
+		apply_gravity(delta)
+		jump()
+		velocity.x = 0 # don't jump off a ledge
+		velocity = move_and_slide(velocity, Vector2.UP)
+		return
 	get_input()
 	animate(delta)
 	apply_gravity(delta)
@@ -83,10 +111,6 @@ func pan_to_goal(delta):
 	var distance_to_target = $Camera2D.global_position.distance_to(goal_global_position)
 	var camera_velocity = (goal_global_position - $Camera2D.global_position).normalized() * 1000
 	$Camera2D.global_position += camera_velocity * get_physics_process_delta_time()
-	#var current_position = Vector2($Camera2D.global_position.x + 1000 * delta, $Camera2D.global_position.y + 1000 * delta)
-	#current_position.x = clamp(current_position.x, -1000000000, goal_global_position.x)
-	#current_position.y = clamp(current_position.y, -1000000000, goal_global_position.y)
-	#$Camera2D.global_position = current_position
 	if $Camera2D.global_position == goal_global_position or distance_to_target < 300:
 		seeds.erase(seeds[0])
 		if len(seeds) == 0:
@@ -112,6 +136,10 @@ func _charged():
 	$Light2D.energy = 1
 
 func _seed_get():
+	seed_count += 1
+	if seed_count == total_seeds:
+		print("win!")
+		$WinAnimation.play("Win")
 	print("Seed gort")
 
 func _on_PanTimer_timeout():

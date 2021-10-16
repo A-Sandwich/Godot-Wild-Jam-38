@@ -13,7 +13,7 @@ resource_name = "Bounce"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Seed:position")
+tracks/0/path = NodePath("Seeds/Seed01:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,6 +23,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 3847.09, -394.948 ), Vector2( 3847.09, -444.948 ), Vector2( 3847.09, -394.948 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Seeds/Seed02:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2078.31, -412.346 ), Vector2( 2078.31, -462.346 ), Vector2( 2078.31, -412.346 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Seeds/Seed03:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 697.359, -154.44 ), Vector2( 697.359, -204.44 ), Vector2( 697.359, -154.44 ) ]
 }
 
 [node name="Level01" type="Node"]
@@ -78,11 +102,21 @@ scale = Vector2( 5.5, 3 )
 [node name="Clouds" parent="Clouds" instance=ExtResource( 6 )]
 tile_data = PoolIntArray( -851947, 2, 0, -786426, 0, 0, -786419, 2, 0, -720879, 1, 0, -655335, 2, 0, -589805, 2, 0, -524266, 1, 0 )
 
-[node name="Seed" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3847.09, -439.948 )
-scale = Vector2( 0.25, 0.25 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Bounce"
 method_call_mode = 1
 anims/Bounce = SubResource( 1 )
+
+[node name="Seeds" type="Node" parent="."]
+
+[node name="Seed01" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 3847.09, -394.948 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Seed02" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 2078.31, -412.346 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Seed03" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 697.359, -154.44 )
+scale = Vector2( 0.25, 0.25 )
