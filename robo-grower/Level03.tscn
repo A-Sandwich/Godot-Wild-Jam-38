@@ -13,7 +13,7 @@ resource_name = "Bounce"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Seeds/Seed:position")
+tracks/0/path = NodePath("Seeds/Seed01:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3193.72, -649.506 ), Vector2( 3193.72, -699.506 ), Vector2( 3193.72, -649.506 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Seeds/Seed2:position")
+tracks/1/path = NodePath("Seeds/Seed02:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -35,6 +35,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1833.27, 169.087 ), Vector2( 1833.27, 119.087 ), Vector2( 1833.27, 169.087 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Seeds/Seed03:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2040.6, -968.108 ), Vector2( 2040.6, -1018.11 ), Vector2( 2040.6, -968.108 ) ]
 }
 
 [node name="Level03" type="Node"]
@@ -115,10 +127,14 @@ anims/Bounce = SubResource( 1 )
 
 [node name="Seeds" type="Node" parent="."]
 
-[node name="Seed" parent="Seeds" instance=ExtResource( 7 )]
-position = Vector2( 3193.72, -649.506 )
+[node name="Seed03" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 2040.6, -1018.11 )
 scale = Vector2( 0.25, 0.25 )
 
-[node name="Seed2" parent="Seeds" instance=ExtResource( 7 )]
-position = Vector2( 1833.27, 169.087 )
+[node name="Seed01" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 3193.72, -699.506 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Seed02" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 1833.27, 119.087 )
 scale = Vector2( 0.25, 0.25 )

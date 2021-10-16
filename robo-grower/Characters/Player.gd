@@ -25,6 +25,7 @@ func _ready():
 	sort_seeds_by_distance()
 	var shadows = get_tree().get_nodes_in_group("Shadow")
 	for shadow in shadows:
+		print(shadow.name)
 		shadow.connect("charging", self, "_on_charging")
 		shadow.connect("discharge", self, "_on_discharge")
 

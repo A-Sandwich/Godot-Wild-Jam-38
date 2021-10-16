@@ -19,10 +19,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3295.02, 362.023 ), Vector2( 3295.02, 312.023 ) ]
+"values": [ Vector2( 3295.02, 362.023 ), Vector2( 3295.02, 312.023 ), Vector2( 3295.02, 362.023 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Seeds/Seed02:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 712.546, 34.7303 ), Vector2( 712.546, -15.27 ), Vector2( 712.546, 34.7303 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Seeds/Seed03:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2030.68, -45.972 ), Vector2( 2030.68, -95.972 ), Vector2( 2030.68, -45.972 ) ]
 }
 
 [node name="Level02" type="Node"]
@@ -58,28 +82,39 @@ __meta__ = {
 [node name="Shadows" type="Node2D" parent="."]
 
 [node name="Shadow" parent="Shadows" instance=ExtResource( 5 )]
-position = Vector2( 2158.11, 724.129 )
-rotation = 0.126542
-scale = Vector2( 4, 3 )
-
-[node name="Shadow3" parent="Shadows" instance=ExtResource( 5 )]
-position = Vector2( 1154.02, 544.798 )
-rotation = 0.603892
+position = Vector2( 1180.72, 524.615 )
+rotation = 0.613457
 scale = Vector2( 3, 3 )
 
+[node name="Shadow3" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2396.28, 215.41 )
+rotation = -0.262554
+scale = Vector2( 1.35, 6 )
+
 [node name="Shadow4" parent="Shadows" instance=ExtResource( 5 )]
-position = Vector2( 2272.5, 252.922 )
-scale = Vector2( 3, 1.5 )
+position = Vector2( 1385.53, 166.936 )
+rotation = 0.542316
+scale = Vector2( 1.25, 3 )
 
 [node name="Shadow5" parent="Shadows" instance=ExtResource( 5 )]
-position = Vector2( 1414.35, 62.2277 )
-rotation = 0.651223
-scale = Vector2( 1.25, 1 )
+position = Vector2( 1441.25, 490.398 )
+rotation = 0.319088
+scale = Vector2( 1.25, 3 )
 
-[node name="Shadow6" parent="Shadows" instance=ExtResource( 5 )]
-position = Vector2( 2179.48, -172.707 )
-rotation = 0.261799
-scale = Vector2( 1.25, 2 )
+[node name="Shadow7" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2232.76, 172.466 )
+rotation = 0.0256423
+scale = Vector2( 1.35, 6 )
+
+[node name="Shadow8" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2085.76, 454.908 )
+rotation = 0.112511
+scale = Vector2( 1.35, 3 )
+
+[node name="Shadow9" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 1872.69, 709.271 )
+rotation = 0.20092
+scale = Vector2( 1.35, 3 )
 
 [node name="Clouds" type="Node" parent="."]
 

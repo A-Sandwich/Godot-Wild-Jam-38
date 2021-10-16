@@ -3,10 +3,9 @@ extends ProgressBar
 signal no_charge
 signal charged
 
-export var is_charging = false
 var rate_of_charge = 10
 var charge = 0
-var game_started = false
+var number_of_shadows = 0
 
 func _ready():
 	var player = get_tree().get_nodes_in_group("player")[0]
@@ -15,9 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not game_started:
-		return
-	if is_charging:
+	if number_of_shadows == 0:
 		charge = charge + (delta * rate_of_charge)
 	else:
 		charge = charge - (delta * rate_of_charge * 2)
@@ -32,8 +29,7 @@ func _process(delta):
 
 
 func _start_charging():
-	game_started = true
-	is_charging = true
+	number_of_shadows = clamp((number_of_shadows - 1), 0, 99999)
 
 func _stop_charging():
-	is_charging = false
+	number_of_shadows = clamp((number_of_shadows + 1), 0, 99999)
