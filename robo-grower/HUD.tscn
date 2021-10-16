@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Battery.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/retry.png" type="Texture" id=2]
 [ext_resource path="res://RetryButton.gd" type="Script" id=3]
 [ext_resource path="res://Typefaces/gomarice_no_continue.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://RetryText.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Seed.png" type="Texture" id=6]
+[ext_resource path="res://Seeds.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0352941, 0.913725, 0.27451, 1 )
@@ -95,6 +97,36 @@ __meta__ = {
 }
 
 [node name="RetryTextDisplay" type="Timer" parent="RetryText"]
+
+[node name="Seeds" type="HBoxContainer" parent="." groups=[
+"seed_collection",
+]]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seed01" type="Sprite" parent="Seeds"]
+modulate = Color( 0.141176, 0.109804, 0.109804, 0.482353 )
+position = Vector2( 35, 1.25 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+
+[node name="Seed02" type="Sprite" parent="Seeds"]
+modulate = Color( 0.141176, 0.109804, 0.109804, 0.482353 )
+position = Vector2( 85, 1.25 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+
+[node name="Seed03" type="Sprite" parent="Seeds"]
+modulate = Color( 0.141176, 0.109804, 0.109804, 0.482353 )
+position = Vector2( 135, 1.25 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
 
 [connection signal="charged" from="Battery" to="RetryText" method="_on_Battery_charged"]
 [connection signal="no_charge" from="Battery" to="RetryText" method="_on_Battery_no_charge"]

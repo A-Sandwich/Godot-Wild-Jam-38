@@ -2,7 +2,6 @@ extends Area2D
 
 signal seed_get
 
-
 func _on_Seed_body_entered(body):
 	if not visible:
 		return
