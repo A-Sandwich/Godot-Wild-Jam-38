@@ -32,10 +32,8 @@ func _process(delta):
 
 
 func _start_charging():
-	print("start")
 	game_started = true
 	is_charging = true
 
 func _stop_charging():
-	print("stop")
 	is_charging = false

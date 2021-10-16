@@ -5,7 +5,6 @@ signal seed_get
 func _on_Seed_body_entered(body):
 	if not visible:
 		return
-	print("entered")
 	emit_signal("seed_get")
 	$obtain.play()
 	visible = false

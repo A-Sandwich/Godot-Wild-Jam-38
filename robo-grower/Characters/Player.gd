@@ -25,7 +25,6 @@ func _ready():
 	sort_seeds_by_distance()
 	var shadows = get_tree().get_nodes_in_group("Shadow")
 	for shadow in shadows:
-		print("connecting")
 		shadow.connect("charging", self, "_on_charging")
 		shadow.connect("discharge", self, "_on_discharge")
 
@@ -39,15 +38,11 @@ func sort_seeds_by_distance():
 			for sorted_seed in sorted_array:
 				var sorted_distance = global_position.distance_to(sorted_seed.global_position)
 				if sorted_distance > distance:
-					print("Push front", plant_seed.name)
 					sorted_array.insert(sorted_array.find(sorted_seed), plant_seed)
 					break
 			if not sorted_array.has(plant_seed):
-				print("Push back")
 				sorted_array.push_back(plant_seed)
 	seeds = sorted_array
-	for seeedy in seeds:
-		print(global_position.distance_to(seeedy.global_position), seeedy.name)
 
 func new_level_or_retry():
 	if $"/root/State".should_pan:
@@ -122,11 +117,9 @@ func pan_to_goal(delta):
 			$PanTimer.start()
 
 func _on_charging():
-	print("Charge")
 	emit_signal("start_charging")
 
 func _on_discharge():
-	print("Discharge")
 	emit_signal("stop_charging")
 
 func _no_charge():
@@ -142,9 +135,7 @@ func _charged():
 func _seed_get():
 	seed_count += 1
 	if seed_count == total_seeds:
-		print("win!")
 		$WinAnimation.play("Win")
-	print("Seed gort")
 
 func _on_PanTimer_timeout():
 	$Camera2D.position = Vector2.ZERO
