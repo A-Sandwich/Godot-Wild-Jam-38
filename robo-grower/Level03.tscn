@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://grass-world.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/light.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Background-clouds.png" type="Texture" id=4]
+[ext_resource path="res://Shadow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Clouds/Cloud01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Seed.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bounce"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Seeds/Seed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3193.72, -649.506 ), Vector2( 3193.72, -699.506 ), Vector2( 3193.72, -649.506 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Seeds/Seed2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1833.27, 169.087 ), Vector2( 1833.27, 119.087 ), Vector2( 1833.27, 169.087 ) ]
+}
+
+[node name="Level03" type="Node"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 59058.7, -9461.2 )
+scale = Vector2( 81.9852, 81.9852 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -1616.62
+margin_top = -1304.97
+margin_right = 2011.38
+margin_bottom = 607.025
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="grass-world" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -983010, 0, 196609, -983009, 0, 3, -983008, 0, 3, -983007, 0, 0, -983000, 0, 196609, -982999, 0, 3, -982998, 0, 3, -982997, 0, 0, -917474, 0, 131072, -917473, 0, 131073, -917472, 0, 131073, -917471, 0, 196611, -917464, 0, 131072, -917463, 0, 131073, -917462, 0, 131073, -917461, 0, 196611, -720882, 0, 196609, -720881, 0, 3, -720880, 0, 3, -720879, 0, 3, -720878, 0, 0, -720874, 0, 196609, -720873, 0, 3, -720872, 0, 3, -720871, 0, 3, -720870, 0, 0, -655346, 0, 131072, -655345, 0, 131073, -655344, 0, 131073, -655343, 0, 131073, -655342, 0, 196611, -655338, 0, 131072, -655337, 0, 131073, -655336, 0, 131073, -655335, 0, 131073, -655334, 0, 196611, -655312, 0, 196609, -655311, 0, 3, -655310, 0, 0, -589817, 0, 196609, -589816, 0, 3, -589815, 0, 3, -589814, 0, 0, -589776, 0, 131072, -589775, 0, 131073, -589774, 0, 196611, -524282, 0, 196609, -524281, 0, 65537, -524280, 0, 65538, -524279, 0, 65538, -524278, 0, 2, -524277, 0, 0, -458747, 0, 196609, -458746, 0, 65537, -458745, 0, 65539, -458744, 0, 131073, -458743, 0, 131073, -458742, 0, 131074, -458741, 0, 2, -458740, 0, 0, -458711, 0, 196609, -458710, 0, 3, -458709, 0, 3, -458708, 0, 0, -327686, 0, 196609, -327685, 0, 0, -393213, 0, 196609, -393212, 0, 3, -393211, 0, 65537, -393210, 0, 65539, -393209, 0, 196611, -393206, 0, 1, -393205, 0, 65538, -393204, 0, 131075, -393181, 0, 196609, -393180, 0, 3, -393179, 0, 3, -393178, 0, 3, -393177, 0, 3, -393176, 0, 3, -393175, 0, 65537, -393174, 0, 65539, -393173, 0, 131073, -393172, 0, 196611, -262150, 0, 1, -262149, 0, 131075, -327680, 0, 196609, -327679, 0, 3, -327678, 0, 3, -327677, 0, 65537, -327676, 0, 65539, -327675, 0, 131073, -327674, 0, 196611, -327670, 0, 1, -327669, 0, 65538, -327668, 0, 2, -327667, 0, 3, -327666, 0, 3, -327665, 0, 3, -327664, 0, 3, -327663, 0, 3, -327662, 0, 3, -327661, 0, 3, -327660, 0, 0, -327658, 0, 196609, -327657, 0, 3, -327656, 0, 3, -327655, 0, 3, -327654, 0, 3, -327653, 0, 3, -327652, 0, 3, -327651, 0, 3, -327650, 0, 3, -327649, 0, 3, -327648, 0, 0, -327645, 0, 131072, -327644, 0, 131073, -327643, 0, 131073, -327642, 0, 131073, -327641, 0, 131073, -327640, 0, 131073, -327639, 0, 131073, -327638, 0, 196611, -196614, 0, 1, -196613, 0, 2, -196612, 0, 0, -196609, 0, 196609, -262144, 0, 65537, -262143, 0, 65539, -262142, 0, 131073, -262141, 0, 131073, -262140, 0, 196611, -262134, 0, 131072, -262133, 0, 131073, -262132, 0, 131073, -262131, 0, 131073, -262130, 0, 131073, -262129, 0, 131073, -262128, 0, 131073, -262127, 0, 131073, -262126, 0, 131073, -262125, 0, 131074, -262124, 0, 131075, -262122, 0, 131072, -262121, 0, 131073, -262120, 0, 131073, -262119, 0, 131073, -262118, 0, 131073, -262117, 0, 131073, -262116, 0, 131073, -262115, 0, 131073, -262114, 0, 131073, -262113, 0, 131073, -262112, 0, 196611, -131078, 0, 131072, -131077, 0, 131074, -131076, 0, 2, -131075, 0, 3, -131074, 0, 3, -131073, 0, 65537, -196608, 0, 65539, -196607, 0, 196611, -196589, 0, 1, -196588, 0, 131075, -65541, 0, 131072, -65540, 0, 131073, -65539, 0, 131073, -65538, 0, 131073, -65537, 0, 131073, -131072, 0, 196611, -131053, 0, 1, -131052, 0, 2, -131051, 0, 0, -65517, 0, 131072, -65516, 0, 131074, -65515, 0, 2, -65514, 0, 3, -65513, 0, 0, 20, 0, 131072, 21, 0, 131073, 22, 0, 131074, 23, 0, 2, 24, 0, 3, 25, 0, 0, 65558, 0, 1, 65559, 0, 65538, 65560, 0, 65538, 65561, 0, 131075, 131094, 0, 131072, 131095, 0, 131073, 131096, 0, 131074, 131097, 0, 2, 131098, 0, 0, 196632, 0, 131072, 196633, 0, 131074, 196634, 0, 2, 196635, 0, 3, 196636, 0, 3, 196637, 0, 0, 262169, 0, 131072, 262170, 0, 131073, 262171, 0, 131073, 262172, 0, 131073, 262173, 0, 196611 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -110.96, -257.493 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.952941, 0.952941, 0.952941, 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 1040.7, -2008.57 )
+scale = Vector2( 5.30017, 5.04362 )
+texture = ExtResource( 3 )
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Shadows" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shadow" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 1055.26, -413.035 )
+scale = Vector2( 1.4, 2 )
+
+[node name="Shadow3" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 1656.9, -427.604 )
+rotation = -0.371053
+scale = Vector2( 1.3, 2 )
+
+[node name="Shadow2" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2382.66, -533.14 )
+rotation = -0.769318
+scale = Vector2( 1, 3 )
+
+[node name="Shadow4" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2921.93, -737.895 )
+rotation = -0.963103
+scale = Vector2( 0.8, 2.3 )
+
+[node name="Clouds" type="Node" parent="."]
+
+[node name="Clouds" parent="Clouds" instance=ExtResource( 6 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Bounce"
+method_call_mode = 1
+anims/Bounce = SubResource( 1 )
+
+[node name="Seeds" type="Node" parent="."]
+
+[node name="Seed" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 3193.72, -649.506 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Seed2" parent="Seeds" instance=ExtResource( 7 )]
+position = Vector2( 1833.27, 169.087 )
+scale = Vector2( 0.25, 0.25 )

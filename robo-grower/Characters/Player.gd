@@ -12,7 +12,6 @@ var is_panning_to_goal = true
 var goal_global_position
 
 func _ready():
-	new_level_or_retry()
 	$HUD/Battery.connect("no_charge", self, "_no_charge")
 	$HUD/Battery.connect("charged", self, "_charged")
 	var seeds = get_tree().get_nodes_in_group("seed")

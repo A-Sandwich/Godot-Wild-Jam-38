@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://grass-world.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/light.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Background-clouds.png" type="Texture" id=4]
+[ext_resource path="res://Shadow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Clouds/Cloud01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Seed.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bounce"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Seed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3295.02, 362.023 ), Vector2( 3295.02, 312.023 ) ]
+}
+
+[node name="Level02" type="Node"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 59058.7, -9461.2 )
+scale = Vector2( 81.9852, 81.9852 )
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -1616.62
+margin_top = -1304.97
+margin_right = 2011.38
+margin_bottom = 607.025
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="grass-world" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -131075, 0, 196609, -131074, 0, 3, -131073, 0, 3, -196608, 0, 0, -65539, 0, 1, -65538, 0, 65538, -65537, 0, 65538, -131072, 0, 131075, -3, 0, 1, -2, 0, 65538, -1, 0, 65538, -65536, 0, 131075, -65531, 0, 196609, -65530, 0, 3, -65529, 0, 0, 65533, 0, 1, 65534, 0, 65538, 65535, 0, 65538, 0, 0, 131075, 5, 0, 1, 6, 0, 65538, 7, 0, 131075, 131069, 0, 1, 131070, 0, 65538, 131071, 0, 65538, 65536, 0, 131075, 65541, 0, 1, 65542, 0, 65538, 65543, 0, 131075, 65546, 0, 196609, 65547, 0, 3, 65548, 0, 0, 196605, 0, 1, 196606, 0, 65538, 196607, 0, 65538, 131072, 0, 131075, 131077, 0, 1, 131078, 0, 65538, 131079, 0, 131075, 131082, 0, 131072, 131083, 0, 131074, 131084, 0, 2, 131085, 0, 0, 262141, 0, 131072, 262142, 0, 131074, 262143, 0, 65538, 196608, 0, 131075, 196613, 0, 131072, 196614, 0, 131073, 196615, 0, 196611, 196619, 0, 131072, 196620, 0, 131074, 196621, 0, 2, 196622, 0, 0, 327678, 0, 131072, 327679, 0, 131074, 262144, 0, 131075, 262156, 0, 131072, 262157, 0, 131074, 262158, 0, 131075, 393215, 0, 131072, 327680, 0, 196611, 327693, 0, 1, 327694, 0, 131075, 393229, 0, 1, 393230, 0, 131075, 393255, 0, 196609, 393256, 0, 3, 393257, 0, 3, 393258, 0, 3, 393259, 0, 3, 393260, 0, 3, 393261, 0, 0, 393266, 0, 196609, 393267, 0, 3, 393268, 0, 0, 458765, 0, 1, 458766, 0, 131075, 458790, 0, 196609, 458791, 0, 65537, 458792, 0, 65539, 458793, 0, 131073, 458794, 0, 131073, 458795, 0, 131073, 458796, 0, 131073, 458797, 0, 196611, 458802, 0, 131072, 458803, 0, 131073, 458804, 0, 196611, 524301, 0, 1, 524302, 0, 2, 524303, 0, 3, 524304, 0, 3, 524305, 0, 3, 524306, 0, 3, 524307, 0, 0, 524321, 0, 196609, 524322, 0, 3, 524323, 0, 3, 524324, 0, 3, 524325, 0, 3, 524326, 0, 65537, 524327, 0, 65539, 524328, 0, 196611, 589837, 0, 131072, 589838, 0, 131073, 589839, 0, 131073, 589840, 0, 131073, 589841, 0, 131073, 589842, 0, 131074, 589843, 0, 131075, 589856, 0, 196609, 589857, 0, 65537, 589858, 0, 65539, 589859, 0, 131073, 589860, 0, 131073, 589861, 0, 131073, 589862, 0, 131073, 589863, 0, 196611, 655378, 0, 1, 655379, 0, 131075, 655392, 0, 1, 655393, 0, 65539, 655394, 0, 196611, 720914, 0, 1, 720915, 0, 2, 720916, 0, 3, 720917, 0, 3, 720918, 0, 3, 720919, 0, 3, 720920, 0, 3, 720921, 0, 3, 720922, 0, 3, 720923, 0, 3, 720924, 0, 3, 720925, 0, 3, 720926, 0, 3, 720927, 0, 3, 720928, 0, 65537, 720929, 0, 131075, 786450, 0, 131072, 786451, 0, 131073, 786452, 0, 131073, 786453, 0, 131073, 786454, 0, 131073, 786455, 0, 131073, 786456, 0, 131073, 786457, 0, 131073, 786458, 0, 131073, 786459, 0, 131073, 786460, 0, 131073, 786461, 0, 131073, 786462, 0, 131073, 786463, 0, 131073, 786464, 0, 131073, 786465, 0, 196611 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -110.96, -257.493 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.952941, 0.952941, 0.952941, 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 2361.16, -1283.02 )
+scale = Vector2( 4.85263, 4.96409 )
+texture = ExtResource( 3 )
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+
+[node name="Shadows" type="Node2D" parent="."]
+
+[node name="Shadow" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2093.1, 692.745 )
+rotation = 0.261799
+scale = Vector2( 4, 3 )
+
+[node name="Shadow3" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 1154.02, 544.798 )
+rotation = 0.603892
+scale = Vector2( 3, 3 )
+
+[node name="Shadow4" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2236.63, 192.395 )
+scale = Vector2( 2, 1.5 )
+
+[node name="Shadow5" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 1414.35, 62.2277 )
+rotation = 0.651223
+scale = Vector2( 1.25, 1 )
+
+[node name="Shadow6" parent="Shadows" instance=ExtResource( 5 )]
+position = Vector2( 2179.48, -172.707 )
+rotation = 0.261799
+scale = Vector2( 1.25, 2 )
+
+[node name="Clouds" type="Node" parent="."]
+
+[node name="Clouds" parent="Clouds" instance=ExtResource( 6 )]
+tile_data = PoolIntArray( -524255, 2, 0, -196586, 0, 0, -131038, 1, 0, 31, 0, 0, 65553, 2, 0, 131094, 1, 0, 196636, 2, 0 )
+
+[node name="Seed" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3295.02, 319.582 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Bounce"
+method_call_mode = 1
+anims/Bounce = SubResource( 1 )

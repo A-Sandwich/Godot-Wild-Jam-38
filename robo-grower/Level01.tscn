@@ -79,7 +79,7 @@ scale = Vector2( 5.5, 3 )
 tile_data = PoolIntArray( -851947, 2, 0, -786426, 0, 0, -786419, 2, 0, -720879, 1, 0, -655335, 2, 0, -589805, 2, 0, -524266, 1, 0 )
 
 [node name="Seed" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3847.09, -405.885 )
+position = Vector2( 3847.09, -439.948 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
