@@ -88,15 +88,12 @@ scale = Vector2( 33.2009, 19.2847 )
 texture = ExtResource( 4 )
 
 [node name="Player" type="AnimatedSprite" parent="."]
-position = Vector2( 505.488, 323.641 )
+position = Vector2( 635.743, 419.916 )
 scale = Vector2( 0.25, 0.25 )
 z_index = 1
 frames = SubResource( 11 )
-frame = 5
+frame = 6
 playing = true
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Light2D" type="Light2D" parent="Player"]
 position = Vector2( 1.63951, 32.7581 )
@@ -108,9 +105,12 @@ color = Color( 0.372549, 0.807843, 1, 1 )
 energy = 0.5
 shadow_enabled = true
 shadow_filter = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Seed" type="Sprite" parent="."]
-position = Vector2( 510.268, 297.341 )
+position = Vector2( 642.41, 395.504 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -124,6 +124,9 @@ texture = ExtResource( 1 )
 color = Color( 0.0235294, 0.811765, 0, 1 )
 energy = 0.60511
 shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Glow" type="AnimationPlayer" parent="Seed"]
 autoplay = "Glow"

@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal start_charging
 signal stop_charging
 signal win
+signal retry
 
 var speed = 500
 var gravity = 32
@@ -13,6 +14,7 @@ var is_panning_to_goal = true
 var seeds
 var seed_count = 0
 var total_seeds = 0
+var fall_time = 0
 
 func _ready():
 	$HUD/Battery.connect("no_charge", self, "_no_charge")
@@ -90,6 +92,15 @@ func _physics_process(delta):
 	animate(delta)
 	apply_gravity(delta)
 	velocity = move_and_slide(velocity, Vector2.UP)
+	check_for_fall(delta)
+
+func check_for_fall(delta):
+	if not is_on_floor():
+		fall_time += delta
+	else:
+		fall_time = 0
+	if fall_time > 2:
+		emit_signal("retry")
 
 func apply_gravity(delta):
 	velocity.y += gravity + delta
