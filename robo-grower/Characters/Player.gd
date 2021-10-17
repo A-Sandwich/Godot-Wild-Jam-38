@@ -50,7 +50,7 @@ func sort_seeds_by_distance():
 
 func new_level_or_retry():
 	var level = get_tree().get_nodes_in_group("level")[0]
-	if not level.current_level in $"/root/State".should_pan:
+	if not level.current_level in get_node("/root/State").should_pan:
 		$"/root/State".should_pan.append($"/root/State".current_level)
 	else:
 		is_panning_to_goal = false
