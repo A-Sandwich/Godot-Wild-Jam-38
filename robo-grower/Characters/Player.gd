@@ -15,7 +15,6 @@ var seed_count = 0
 var total_seeds = 0
 
 func _ready():
-	new_level_or_retry()
 	$HUD/Battery.connect("no_charge", self, "_no_charge")
 	$HUD/Battery.connect("charged", self, "_charged")
 	seeds = get_tree().get_nodes_in_group("seed")
@@ -47,10 +46,7 @@ func sort_seeds_by_distance():
 	seeds = sorted_array
 
 func new_level_or_retry():
-	var level = get_tree().get_nodes_in_group("level")[0]
-	if not level.current_level in $"/root/State".should_pan:
-		$"/root/State".should_pan.append($"/root/State".current_level)
-	else:
+	if not $"/root/State".should_pan:
 		is_panning_to_goal = false
 
 func get_input():
@@ -107,6 +103,7 @@ func animate(delta):
 		pan_to_goal(delta)
 
 func pan_to_goal(delta):
+	new_level_or_retry()
 	if len(seeds) == 0:
 		return
 	var goal_global_position = seeds[0].global_position
